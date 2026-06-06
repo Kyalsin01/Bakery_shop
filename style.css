@@ -1,0 +1,436 @@
+/* ==========================================
+   GLOBAL & TYPOGRAPHY STYLES
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 1.5px;
+}
+
+/* ==========================================
+   NAVBAR LINK STYLES
+   ========================================== */
+.navbar-nav .nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Mouse တင်လိုက်တဲ့အခါ */
+.navbar-nav .nav-link:hover {
+    color: #a81c1c !important;
+    transform: translateY(-4px);
+}
+
+/* Login Link Hover Style */
+.login-link {
+    display: inline-block;        
+    color: #212529 !important;   
+    transition: all 0.3s ease-in-out; 
+}
+
+.login-link:hover {
+    color: #a81c1c !important;    
+    transform: translateY(-2px);   
+    cursor: pointer;             
+}
+
+/* ==========================================
+   BUTTON STYLES
+   ========================================== */
+.btn {
+    letter-spacing: 1.5px;
+}
+
+.order-btn {
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.order-btn:hover {
+    background-color: #e0a800 !important;
+    color: #000000 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 193, 7, 0.4);
+}
+
+/* ==========================================
+   SEARCH BAR STYLES
+   ========================================== */
+.main-search-box {
+    width: 250px;
+}
+
+.main-search-box .form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #cccccc;
+    font-size: 14px;
+    color: #212529;
+    transition: all 0.3s ease;
+}
+
+.main-search-box .form-control:hover {
+    border-color: #a81c1c;     
+    background-color: #ffffff; 
+}
+
+.main-search-box .form-control:focus {
+    background-color: #ffffff;
+    border-color: #a81c1c;
+    box-shadow: 0 0 0 0.25rem rgba(168, 28, 28, 0.15);
+}
+
+.main-search-box .search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555555;
+    font-size: 14px;
+    pointer-events: none; 
+}
+
+@media (max-width: 991.98px) {
+    .main-search-box {
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   HERO PROMO BADGE STYLE
+   ========================================== */
+.promo-badge {
+    display: inline-block;
+    background-color: #ffc107;                
+    color: #000000;                                                                        
+    border: none;                                                                             
+    padding: 8px 18px;                                                                        
+    border-radius: 50px;                                                                       
+    font-size: 13px;                                                                           
+    font-weight: 700;                                                                          
+    text-transform: uppercase;                                                                 
+    letter-spacing: 1.5px;                                                                     
+    animation: pulse-yellow 2s infinite; 
+}
+
+@keyframes pulse-yellow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.6);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(255, 193, 7, 0);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+        transform: scale(1);
+    }
+}
+
+/* ==========================================
+   HERO 3-IMAGES GRID STYLES
+   ========================================== */
+.hero-main-img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.hero-sub-img {
+    width: 100%;
+    max-width: 135px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.hero-main-img:hover {
+    transform: scale(1.03);
+}
+
+.hero-sub-img:hover {
+    transform: scale(1.08);
+    border-color: #ffc107;
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
+}
+
+/* ==========================================
+   MENU SECTION TITLE STYLES
+   ========================================== */
+.container h2, h2.menu-section-title {
+    font-family: 'Playfair Display', 'Georgia', serif !important;
+    font-size: 36px !important;
+    font-weight: 800 !important;
+    color: #930606 !important; 
+    letter-spacing: 1px !important;
+    margin-bottom: 6px !important;
+}
+
+.container h2 + p, p.menu-section-subtitle {
+    font-family: 'Poppins', 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #7c0a0a !important; 
+    letter-spacing: 0.5px !important;
+    margin-bottom: 30px !important;
+}
+
+/* ==========================================
+   MENU CATEGORY CARD STYLES
+   ========================================== */
+.category-card {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 20px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: #fbf5f5; 
+    border-radius: 50%;        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.category-icon-wrapper i {
+    color: #6b0c0c;            
+    font-size: 1.5rem;
+}
+
+.category-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #555555;
+    letter-spacing: 0.5px;
+}
+
+.category-card:hover {
+    transform: translateY(-5px); 
+    border-color: #6b0c0c;       
+    box-shadow: 0 8px 20px rgba(107, 12, 12, 0.1); 
+}
+
+.category-card:hover .category-icon-wrapper {
+    background-color: #6b0c0c;   
+}
+
+.category-card:hover .category-icon-wrapper i {
+    color: #ffffff;              
+}
+
+/* ==========================================
+   PRODUCT CARD STYLES
+   ========================================== */
+.product-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease-in-out;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.wishlist-btn {
+    top: 15px;
+    left: 15px;
+    background: #ffffff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #888888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.wishlist-btn:hover {
+    color: #dc3545; 
+    transform: scale(1.1);
+}
+
+.add-to-cart-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+    border-color: rgba(107, 12, 12, 0.1);
+}
+
+/* ==========================================
+   OUR PROMISE & GALLERY STYLES
+   ========================================== */
+.promise-icon-box {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #6b0c0c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6b0c0c;
+    font-size: 1.3rem;
+    background-color: #ffffff;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 160px; 
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/* ==========================================
+   FOOTER STYLES
+   ========================================== */
+.footer-links a {
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #ffc107 !important; 
+}
+
+.footer-social-icon {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.footer-social-icon:hover {
+    color: #ffc107 !important;
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   BOTTOM FOOTER LINKS HOVER EFFECT
+   ========================================== */
+footer .list-inline-item a {
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out !important;
+    cursor: pointer !important;
+}
+
+footer .list-inline-item a:hover {
+    color: #ffc107 !important; 
+    opacity: 1 !important;
+}
+
+/* ==========================================
+   THE MAGICAL TICKET - BOOTSTRAP GIFT ICON FIX (OPTION 2)
+   ========================================== */
+/* Font Awesome လင့်ခ်မရှိပါက ကျိန်းသေပေါက်အလုပ်လုပ်စေရန် Bootstrap Icon Font ဖြင့် လက်ဆောင်ဘူးပုံပြောင်းလဲခြင်း */
+.bi-ticket-perforated-fill::before {
+    content: "\f3ea" !important; /* Bootstrap Icons ရဲ့ Gift (လက်ဆောင်ဘူး) ကုဒ် */
+    font-family: "bootstrap-icons" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+
+/* ==========================================
+   THE MAGICAL TICKET BACKGROUND IMAGE FIX (SUPER FORCE)
+   ========================================== */
+div[style*="dashed"], .promo-card, .card[style*="dashed"] {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)), 
+                      url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600&auto=format&fit=crop') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-color: transparent !important; 
+}
+/* Add this to your style section */
+.add-to-cart-btn {
+    transition: all 0.2s ease;
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.85); /* နှိပ်လိုက်ရင် ခလုတ်လေး ခဏပိန်သွားပါမယ် */
+    background-color: #4a0808 !important; /* နှိပ်လိုက်ရင် အရောင်လေး ပိုရင့်သွားအောင် လုပ်ထားပါတယ် */
+}
+/* Cart ထဲက +/- ခလုတ်များ ပုံစံကျစေရန် */
+.add-to-cart-btn, .btn-sm {
+    width: 30px !important;     /* အကျယ် */
+    height: 30px !important;    /* အမြင့် (width နဲ့တူရမယ်) */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    border-radius: 50% !important; /* အဝိုင်းပုံဖြစ်စေရန် */
+    line-height: 1 !important;
+    vertical-align: middle;
+}
+
+/* နှိပ်လိုက်တဲ့အခါ ပုံစံမပျက်အောင် */
+.add-to-cart-btn:active {
+    transform: scale(0.9);
+}
+
+@media (max-width: 991px) {
+    /* Navbar menu ဖွင့်လိုက်ရင် အပြည့်ဖြန့်ပြီး အလယ်ကျစေရန် */
+    .navbar-collapse {
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .navbar-nav {
+        margin-top: 15px !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+
+    /* Mobile မှာ Margin တွေကို 0 လုပ်ပြီး အလယ်ရောက်အောင် */
+    .navbar-nav .nav-item {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        margin-bottom: 10px;
+        width: 100% !important;
+    }
+
+    /* Order Button ကို အလယ်ရောက်အောင် သေချာစေရန် */
+    .order-btn {
+        margin: 10px auto !important;
+        display: inline-block !important; /* Block အစား inline-block သုံးကြည့်ပါ */
+    }
+
+    /* Search Box အတွက် */
+    .main-search-box {
+        width: 90% !important;
+        margin: 10px auto !important;
+    }
+}

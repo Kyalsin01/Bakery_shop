@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Cakes - Dakingo Food Delivery</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger fs-3" href="index.html" style="color: #a81c1c !important;">Dakingo</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto main-search-box position-relative my-2 my-lg-0">
+                    <i class="bi bi-search search-icon"></i>
+                    <input class="form-control rounded-pill ps-5 py-2" type="search" placeholder="Search cakes, desserts...">
+                </div>
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="cakes.html">Cakes</a></li>
+                    <li class="nav-item"><a class="nav-link " href="juices.html">Juices</a></li>
+                    <li class="nav-item"><a class="nav-link " href="dessert.html">Desserts</a></li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link login-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-person me-1"></i>Login / Signup
+                        </a>
+                    </li>
+<li class="nav-item">
+   <button class="btn btn-warning order-btn rounded-pill px-4 py-2" 
+        onclick="openCart()" 
+        style="background-color: #ffc107; color: #000; border: none;"> 
+    <i class="bi bi-cart-fill me-2"></i>ORDER NOW (<span id="navOrderCount">0</span>)
+</button>
+</li>                       </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="py-5 bg-light mb-5" style="background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200') center/cover;">
+        <div class="container text-center py-4">
+            <h1 class="display-5 fw-bold" style="color: #930606; font-family: 'Playfair Display', serif;">Our Heavenly Cakes</h1>
+            <p class="lead text-muted" style="font-family: 'Poppins', sans-serif;">Freshly baked, beautifully crafted, delivered right to your door.</p>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row">
+            
+            <div class="col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm p-4 rounded-4 position-sticky" style="top: 100px;">
+                    <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-funnel me-2"></i>Filters</h5>
+                    <hr>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-secondary mb-3">Categories</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="cakeCategory" id="allCakes" value="all" checked>
+                            <label class="form-check-label" for="allCakes">All Cakes</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="cakeCategory" id="chocolate" value="chocolate">
+                            <label class="form-check-label" for="chocolate">Chocolate Cakes</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="cakeCategory" id="cream" value="cream">
+                            <label class="form-check-label" for="cream">Cream Cakes</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="cakeCategory" id="fruit" value="fruit">
+                            <label class="form-check-label" for="fruit">Fruit Cakes</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="cakeCategory" id="cheese" value="cheese">
+                            <label class="form-check-label" for="cheese">Cheese Cakes</label>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold text-secondary mb-2">Price Range</h6>
+                        <input type="range" class="form-range" min="100" max="2000" id="priceRange" value="2000">
+                        <div class="d-flex justify-content-between text-muted small">
+                            <span>MMK  30000</span>
+                            <span>MMK 50000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row g-4" id="productGrid">
+                    
+                    <div class="col-md-4 col-sm-6 product-item" data-category="chocolate">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=500" class="card-img-top rounded-4" alt="Chocolate Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Classic Chocolate Fudge</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (120 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 40000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Classic Chocolate Fudge', 40000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="chocolate">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./luxury.jpg" class="card-img-top rounded-4" alt="Chocolate Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Luxury Black Forest</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (84 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 45000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Luxury Black Forest', 45000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="chocolate">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=500" class="card-img-top rounded-4" alt="Chocolate Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Double Chocolate Crunch</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (145 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 35000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Double Chocolate Crunch', 35000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=500" class="card-img-top rounded-4" alt="Cream Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Vanilla Birthday Swirl</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (95 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 40000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;"onclick="addToCart('Vanilla Birthday Swirl', 40000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./Elegant.jpg" class="card-img-top rounded-4" alt="Cream Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Elegant White Velvet Rose</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.6 (54 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 45000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Elegant White Velvet Rose', 45000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./Matcha.jpg" class="card-img-top rounded-4" alt="Cream Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Matcha Green Tea Cream</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (38 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 43000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Matcha Green Tea Cream', 43000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="fruit">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=500" class="card-img-top rounded-4" alt="Fruit Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Premium Strawberry Layer</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (112 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 37000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Premium Strawberry Layer', 37000)" ><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="fruit">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./fruit.jpg" class="card-img-top rounded-4" alt="Fruit Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Mixed Tropical Fruit Cake</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.6 (67 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 40000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Mixed Tropical Fruit Cake', 40000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<div class="col-md-4 col-sm-6 product-item" data-category="fruit">
+    <div class="card h-100 product-card border-0 shadow-sm position-relative">
+        <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+        <div class="p-3 product-img-wrapper">
+            <img src="./lemon.jpg" class="card-img-top rounded-4" alt="Fruit Cake">
+        </div>
+        <div class="card-body pt-0 px-3 pb-3">
+            <h6 class="fw-bold mb-1">Summer Blueberry Lemon</h6>
+            <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (43 reviews)</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-danger">MMK 46000</span>
+                
+                <button class="btn btn-danger add-to-cart-btn rounded-circle" 
+                        style="background-color: #6b0c0c; border:none;"
+                        onclick="addToCart('Summer Blueberry Lemon', 46000)">
+                    <i class="bi bi-plus"></i>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cheese">
+    <div class="card h-100 product-card border-0 shadow-sm position-relative">
+        <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+        <div class="p-3 product-img-wrapper">
+            <img src="./blueberry.jpg" class="card-img-top rounded-4" alt="Cheese Cake">
+        </div>
+        <div class="card-body pt-0 px-3 pb-3">
+            <h6 class="fw-bold mb-1">New York Blueberry Cheesecake</h6>
+            <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 5.0 (210 reviews)</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-danger">MMK 34000</span>
+                
+                <button class="btn btn-danger add-to-cart-btn rounded-circle" 
+                        style="background-color: #6b0c0c; border:none;"
+                        onclick="addToCart('New York Blueberry Cheesecake', 34000)">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cheese">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./classic.jpg" class="card-img-top rounded-4" alt="Cheese Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Classic Basque Burnt Cheesecake</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (132 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 50000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" 
+                                    style="background-color: #6b0c0c; border:none;"  onclick="addToCart('Classic Basque Burnt Cheesecake', 50000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cheese">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./raspberry.jpg" class="card-img-top rounded-4" alt="Cheese Cake">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Gourmet Raspberry Cheesecake</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (76 reviews)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 47000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Gourmet Raspberry Cheesecake', 47000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> </div> </div> </div> <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel" style="color: #6b0c0c;">Welcome to Dakingo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    
+                    <div id="loginFormSection">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-muted">Email Address</label>
+                                <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-muted">Password</label>
+                                <div class="position-relative">
+                                    <input type="password" id="loginPassword" class="form-control rounded-3 pe-5" placeholder="Enter your password" required>
+                                    <i class="bi bi-eye-slash position-absolute text-muted" id="togglePassword" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="small text-decoration-none" style="color: #a81c1c;">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn">LOGIN</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p class="small text-muted mb-0">Don't have an account? <a href="javascript:void(0)" class="text-decoration-none fw-bold" style="color: #a81c1c;" onclick="toggleAuthForms()">Sign Up</a></p>
+                        </div>
+                    </div>
+
+                    <div id="signupFormSection" style="display: none;">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-muted">Full Name</label>
+                                <input type="text" class="form-control rounded-3" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-muted">Email Address</label>
+                                <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-muted">Create Password</label>
+                                <div class="position-relative">
+                                    <input type="password" id="signupPassword" class="form-control rounded-3 pe-5" placeholder="Minimum 6 characters" required>
+                                    <i class="bi bi-eye-slash position-absolute text-muted" id="toggleSignupPassword" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;"></i>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 text-dark border-0">CREATE ACCOUNT</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <p class="small text-muted mb-0">Already have an account? <a href="javascript:void(0)" class="text-decoration-none fw-bold" style="color: #a81c1c;" onclick="toggleAuthForms()">Login</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // 1. Cart စနစ်အတွက် Variable
+    let cart = JSON.parse(localStorage.getItem('dakingoCart')) || [];
+
+    document.addEventListener('DOMContentLoaded', updateCart);
+
+  // 2. Cart လုပ်ဆောင်ချက်များ
+function addToCart(name, price) {
+    cart.push({ name, price });
+    // အရေးကြီး: LocalStorage ထဲကို အသစ်ပြန်ထည့်ပေးရမယ်
+    localStorage.setItem('dakingoCart', JSON.stringify(cart));
+    updateCart();
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    // အရေးကြီး: LocalStorage ထဲကို update လုပ်ပေးရမယ်
+    localStorage.setItem('dakingoCart', JSON.stringify(cart));
+    updateCart();
+}
+
+    function openCart() {
+        const cartCanvas = new bootstrap.Offcanvas(document.getElementById('cartCanvas'));
+        cartCanvas.show();
+    }
+
+   function updateCart() {
+    const cartList = document.getElementById('cartItemsList');
+    const navOrderCount = document.getElementById('navOrderCount');
+    const cartTotal = document.getElementById('cartTotal');
+    
+    // ဒီနေရာမှာ cartList မရှိရင် function ကို ရပ်လိုက်ပါ
+    if (!cartList) return; 
+    
+    // ကျန်တာတွေကို ဆက်ရေးပါ...
+    cartList.innerHTML = '';
+    // ...
+
+        let total = 0;
+        
+        cart.forEach((item, index) => {
+            total += item.price;
+            cartList.innerHTML += `
+                <div class="d-flex justify-content-between mb-2">
+                    <span>${item.name}</span>
+                    <span>${item.price.toLocaleString()} MMK 
+                        <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index})">x</button>
+                    </span>
+                </div>`;
+        });
+        
+        navOrderCount.innerText = cart.length;
+        cartTotal.innerText = total.toLocaleString();
+    }
+
+    // 3. Filter စနစ်
+    function filterProducts() {
+        const selectedCategory = document.querySelector('.category-filter:checked').value;
+        const maxPrice = parseInt(document.getElementById('priceRange').value);
+        const items = document.querySelectorAll('.product-item');
+        
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            const matchesCategory = (selectedCategory === 'all' || itemCategory === selectedCategory);
+            item.style.display = matchesCategory ? 'block' : 'none';
+        });
+    }
+
+    document.querySelectorAll('.category-filter').forEach(radio => {
+        radio.addEventListener('change', filterProducts);
+    });
+
+    // 4. Login/Signup Toggle
+    function toggleAuthForms() {
+        const loginForm = document.getElementById('loginFormSection');
+        const signupForm = document.getElementById('signupFormSection');
+        if (loginForm.style.display === 'none') {
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+        } else {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        }
+    }
+
+    // 5. Password Toggle
+    function setupPasswordToggle(toggleId, inputId) {
+        const toggle = document.getElementById(toggleId);
+        const input = document.getElementById(inputId);
+        if(toggle && input) {
+            toggle.addEventListener('click', function () {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('bi-eye');
+                this.classList.toggle('bi-eye-slash');
+            });
+        }
+    }
+    setupPasswordToggle('togglePassword', 'loginPassword');
+    setupPasswordToggle('toggleSignupPassword', 'signupPassword');
+</script>
+<!-- Cart Sidebar -->
+<div class="offcanvas offcanvas-end" id="cartCanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="cartItemsList"></div>
+        <hr>
+        <h5 class="text-end">Total: <span id="cartTotal">0</span> MMK</h5>
+        <button class="btn btn-danger w-100">Checkout</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

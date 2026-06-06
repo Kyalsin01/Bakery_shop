@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refreshing Juices - Dakingo Food Delivery</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger fs-3" href="index.html" style="color: #a81c1c !important;">Dakingo</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto main-search-box position-relative my-2 my-lg-0">
+                    <i class="bi bi-search search-icon"></i>
+                    <input class="form-control rounded-pill ps-5 py-2" type="search" id="searchInput" placeholder="Search juices, smoothies...">
+                </div>
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cakes.html">Cakes</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="juices.html">Juice</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dessert.html">Dessert</a></li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link login-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-person me-1"></i>Login / Signup
+                        </a>
+                    </li>
+<li class="nav-item">
+   <button class="btn btn-warning order-btn rounded-pill px-4 py-2" 
+        onclick="openCart()" 
+        style="background-color: #ffc107; color: #000; border: none;"> 
+    <i class="bi bi-cart-fill me-2"></i>ORDER NOW (<span id="navOrderCount">0</span>)
+</button>
+</li>              </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="py-5 bg-light mb-5" style="background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=1200') center/cover;">
+        <div class="container text-center py-4">
+            <h1 class="display-5 fw-bold" style="color: #930606; font-family: 'Playfair Display', serif;">Refreshing Juices & Drinks</h1>
+            <p class="lead text-muted" style="font-family: 'Poppins', sans-serif;">100% Fresh, organic, and ice-cold beverages delivered to you.</p>
+        </div>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            
+            <div class="col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm p-4 rounded-4 position-sticky" style="top: 100px;">
+                    <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-funnel me-2"></i>Filters</h5>
+                    <hr>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-secondary mb-3">Juice Types</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="juiceCategory" id="allJuices" value="all" checked>
+                            <label class="form-check-label" for="allJuices">All Drinks (10)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="juiceCategory" id="fresh" value="fresh">
+                            <label class="form-check-label" for="fresh">Fresh Fruit Juices</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="juiceCategory" id="smoothies" value="smoothies">
+                            <label class="form-check-label" for="smoothies">Smoothies</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="juiceCategory" id="icetea" value="icetea">
+                            <label class="form-check-label" for="icetea">Ice Teas & Sodas</label>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold text-secondary mb-2">Price Range</h6>
+                        <input type="range" class="form-range" min="4000" max="10000" step="500" id="priceRange" value="10000">
+                        <div class="d-flex justify-content-between text-muted small">
+                            <span>MMK 4,000</span>
+                            <span id="maxPriceLabel" class="fw-bold text-danger">MMK 10,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row g-4" id="productGrid">
+    
+                    <div class="col-md-4 col-sm-6 product-item" data-category="fresh" data-price="6000">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>                              
+                              <div class="p-3 product-img-wrapper">
+                             <img src="./juice2.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Mixed Tropical Fruit Juice</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (150)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 6000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;"onclick="addToCart('Mixed Tropical Fruit Juice', 6000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="fresh" data-price="4500">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                                <div class="p-3 product-img-wrapper">
+
+                                <img src="./juice3.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Fresh Honey Lemonade</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (95)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 4500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Fresh Honey Lemonade', 4500)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="fresh" data-price="5000">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./juice7.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Fresh Orange Supreme</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (120)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 5000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Fresh Orange Supreme', 5000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="smoothies" data-price="7500">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./juice4.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Creamy Blueberry Smoothie</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 5.0 (180)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 7500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Creamy Blueberry Smoothie', 7500)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="smoothies" data-price="8000">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                             <div class="p-3 product-img-wrapper">
+                                <img src="./juice5.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Matcha Green Tea Frappe</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (64)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 8000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Matcha Green Tea Frappe', 8000)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="smoothies" data-price="8500">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./juice10.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Avocado Matcha Shake</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (73)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 8500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Avocado Matcha Shake', 8500)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icetea" data-price="5500">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                         <div class="p-3 product-img-wrapper">
+                                <img src="./juice6.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Sparkling Raspberry Ice Tea</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.6 (88)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 5500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Sparkling Raspberry Ice Tea', 5500)"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icetea" data-price="4000">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./juice8.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Zesty Lime & Mint Cooler</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.5 (42)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 4000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('Zesty Lime & Mint Cooler', 4000)" ><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icetea" data-price="4800">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./soda.jpg" class="card-img-top rounded-4" alt="Juice">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1 product-title">Sparkling Blue Ocean Soda</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (90)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 4800</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" ><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> 
+        </div> 
+    </div> 
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel" style="color: #6b0c0c;">Welcome to Dakingo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Email Address</label>
+                            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="loginPassword" class="form-control rounded-3" placeholder="Enter your password" style="padding-right: 50px !important;" required>
+                                <i class="bi bi-eye-slash position-absolute text-muted" id="toggleLoginPasswordIcon" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;" onclick="togglePasswordVisibility('loginPassword', 'toggleLoginPasswordIcon')"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="small text-decoration-none" style="color: #a81c1c;">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn" style="background-color: #ffc107; color: #000; border: none;">LOGIN</button>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <p class="small text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none fw-bold" style="color: #a81c1c;" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="signUpModalLabel" style="color: #6b0c0c;">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Full Name</label>
+                            <input type="text" class="form-control rounded-3" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Email Address</label>
+                            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="signUpPassword" class="form-control rounded-3" placeholder="Create new password" style="padding-right: 50px !important;" required>
+                                <i class="bi bi-eye-slash position-absolute text-muted" id="toggleSignUpPasswordIcon" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;" onclick="togglePasswordVisibility('signUpPassword', 'toggleSignUpPasswordIcon')"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn mt-2" style="background-color: #ffc107; color: #000; border: none;">SIGN UP</button>
+                    </form>
+                    
+                    <div class="text-center mt-3">
+                        <p class="small text-muted mb-0">Already have an account? <a href="#" class="text-decoration-none fw-bold" style="color: #a81c1c;" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<li class="nav-item">
+    <button class="btn btn-outline-danger rounded-pill" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas">
+        <i class="bi bi-cart"></i> Cart (<span id="cartCount">0</span>)
+    </button>
+</li>
+
+<div class="offcanvas offcanvas-end" id="cartCanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="cartItemsList"></div>
+        <hr>
+        <h5 class="text-end">Total: <span id="cartTotal">0</span> MMK</h5>
+        <button class="btn btn-danger w-100">Checkout</button>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Filter စနစ်
+    function filterProducts() {
+        const selectedCategory = document.querySelector('.category-filter:checked').value;
+        const maxPrice = parseInt(document.getElementById('priceRange').value);
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+        const items = document.querySelectorAll('.product-item');
+        
+        items.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            const itemPrice = parseInt(item.getAttribute('data-price'));
+            const itemTitle = item.querySelector('.product-title').textContent.toLowerCase();
+            
+            const matchesCategory = (selectedCategory === 'all' || itemCategory === selectedCategory);
+            const matchesPrice = (itemPrice <= maxPrice);
+            const matchesSearch = (itemTitle.includes(searchQuery));
+            
+            item.style.display = (matchesCategory && matchesPrice && matchesSearch) ? 'block' : 'none';
+        });
+    }
+
+    // Event Listeners for Filters
+    document.querySelectorAll('.category-filter').forEach(radio => {
+        radio.addEventListener('change', filterProducts);
+    });
+
+    const priceRange = document.getElementById('priceRange');
+    const maxPriceLabel = document.getElementById('maxPriceLabel');
+    if(priceRange) {
+        priceRange.addEventListener('input', (e) => {
+            maxPriceLabel.textContent = 'MMK ' + parseInt(e.target.value).toLocaleString();
+            filterProducts();
+        });
+    }
+
+    if(document.getElementById('searchInput')) {
+        document.getElementById('searchInput').addEventListener('input', filterProducts);
+    }
+
+    // Wishlist Toggle
+    document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            icon.classList.toggle('bi-heart');
+            icon.classList.toggle('bi-heart-fill');
+            icon.classList.toggle('text-danger');
+        });
+    });
+
+    // Reusable Password Toggle
+    function togglePasswordVisibility(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const togglePasswordIcon = document.getElementById(iconId);
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordIcon.className = 'bi bi-eye position-absolute text-muted';
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordIcon.className = 'bi bi-eye-slash position-absolute text-muted';
+        }
+    }
+
+    // Cart Logic
+    let cart = [];
+
+    function addToCart(name, price) {
+        cart.push({ name, price });
+        updateCart();
+    }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartList = document.getElementById('cartItemsList');
+        const cartCount = document.getElementById('cartCount');
+        const navOrderCount = document.getElementById('navOrderCount');
+        const cartTotal = document.getElementById('cartTotal');
+        
+        cartList.innerHTML = '';
+        let total = 0;
+        
+        cart.forEach((item, index) => {
+            total += item.price;
+            cartList.innerHTML += `
+                <div class="d-flex justify-content-between mb-2">
+                    <span>${item.name}</span>
+                    <span>${item.price} MMK 
+                        <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index})">x</button>
+                    </span>
+                </div>`;
+        });
+        
+        cartCount.innerText = cart.length;
+        navOrderCount.innerText = cart.length;
+        cartTotal.innerText = total.toLocaleString();
+    }
+
+    function openCart() {
+        const cartCanvas = new bootstrap.Offcanvas(document.getElementById('cartCanvas'));
+        cartCanvas.show();
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>

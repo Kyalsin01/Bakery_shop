@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Food Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#" style="color: #a81c1c;">Dakingo</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto my-3 my-lg-0 main-search-box position-relative">
+                    <i class="bi bi-search search-icon"></i>
+                    <input class="form-control rounded-pill ps-5 py-2" type="search" placeholder="Search cakes, desserts...">
+                </div>
+
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="cakes.html">Cakes</a></li>
+                    <li class="nav-item me-3"><a class="nav-link active" href="juices.html">Juices</a></li>
+                    <li class="nav-item me-3"><a class="nav-link active" href="dessert.html">Desserts</a></li>
+                    
+                    <li class="nav-item me-3">
+                        <a href="#" class="text-dark text-decoration-none small fw-bold login-link" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-person-fill me-1"></i> Login / Signup
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <button class="btn btn-warning rounded-pill px-4 order-btn" onclick="window.location.href='cakes.html'">
+                            <i class="bi bi-cart-fill me-2"></i> ORDER NOW
+                        </button>
+                       
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid" style="background-color: #6b0c0c; color: white; padding: 70px 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+                    <h1 class="display-3 fw-bold mb-3" style="font-family: 'Playfair Display', serif; line-height: 1.1; letter-spacing: 1px;">
+                        DECADENT<br>CHOCOLATE BLISS!
+                    </h1>
+                    <p class="fs-4 text-white-50 mb-4" style="font-style: italic;">Satisfy Your Sweetest Cravings</p>
+                    
+                    <div>
+                        <span class="promo-badge">
+                            Special Offer! <strong class="text-danger">SAVE 20%</strong>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="row align-items-center g-3">
+                        
+                        <div class="col-4 text-end">
+                            <div class="mb-3">
+                                <img src="./cheesecake2.jpg" class="img-fluid rounded-circle hero-sub-img shadow-lg" alt="Lava Cake">
+                            </div>
+                            <div>
+                                <img src="./cheesecake3.jpg" class="img-fluid rounded-circle hero-sub-img shadow-lg" alt="Brownie">
+                            </div>
+                        </div>
+                        
+                        <div class="col-8 text-start">
+                            <img src="./cheesecake1.jpg" class="img-fluid rounded-circle hero-main-img shadow-lg" alt="Luxury Berry Cake">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="mb-4">
+  
+
+<h2>Menu</h2>
+<p class="text-muted" style="letter-spacing: 0.5px;">What are you craving today?</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="category-card text-center p-3">
+                        <div class="category-icon-wrapper mb-3 mx-auto">
+                           <i class="bi bi-cup-hot-fill"></i>
+                        </div>
+                        <h6 class="category-title mb-0">CLASSIC</h6>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="category-card text-center p-3">
+                        <div class="category-icon-wrapper mb-3 mx-auto">
+                            <i class="bi bi-egg-fried"></i>
+                        </div>
+                        <h6 class="category-title mb-0">GOURMET</h6>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="category-card text-center p-3">
+                        <div class="category-icon-wrapper mb-3 mx-auto">
+                            <i class="bi bi-cup-straw"></i>
+                        </div>
+                        <h6 class="category-title mb-0">DESSERTS</h6>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="category-card text-center p-3">
+                        <div class="category-icon-wrapper mb-3 mx-auto">
+                           <i class="bi bi-disc-fill"></i>
+                        </div>
+                        <h6 class="category-title mb-0">COOKIES</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5" style="background-color: #fbf5f5;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="fw-bold mb-1" style="color: #6b0c0c;">Bestsellers from Across the Country</h3>
+                </div>
+                <a href="#" class="btn btn-sm rounded-pill px-3 fw-bold text-white" style="background-color: #6b0c0c;">VIEW ALL</a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-card position-relative p-3">
+                        <button class="wishlist-btn position-absolute"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrapper text-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop&q=60" class="img-fluid rounded-3" alt="Rich Chocolate Truffle">
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark text-truncate">Rich Chocolate Truffle Cake</h6>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-bold text-danger">MMK 35000</span>
+                            <span class="small text-muted text-decoration-line-through">MMK 40000</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-warning"><i class="bi bi-star-fill me-1"></i>4.9</span>
+                            <button class="btn btn-warning btn-sm rounded-circle add-to-cart-btn"><i class="bi bi-arrow-right-short"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-card position-relative p-3">
+                        <button class="wishlist-btn position-absolute"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrapper text-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500&auto=format&fit=crop&q=60" class="img-fluid rounded-3" alt="Choco Chip Truffle">
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark text-truncate">Choco Chip Truffle Cake</h6>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-bold text-danger">MMK 5000</span>
+                            <span class="small text-muted text-decoration-line-through">MMK 10000</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-warning"><i class="bi bi-star-fill me-1"></i>4.8</span>
+                            <button class="btn btn-warning btn-sm rounded-circle add-to-cart-btn"><i class="bi bi-arrow-right-short"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-card position-relative p-3">
+                        <button class="wishlist-btn position-absolute"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrapper text-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=500&auto=format&fit=crop&q=60" class="img-fluid rounded-3" alt="Tropical Fruit Cake">
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark text-truncate">Tropical Fruit N Almond Cake</h6>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-bold text-danger">MMK 35000</span>
+                            <span class="small text-muted text-decoration-line-through">MMK 40000</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-warning"><i class="bi bi-star-fill me-1"></i>4.7</span>
+                            <button class="btn btn-warning btn-sm rounded-circle add-to-cart-btn"><i class="bi bi-arrow-right-short"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-card position-relative p-3">
+                        <button class="wishlist-btn position-absolute"><i class="bi bi-heart"></i></button>
+                        <div class="product-img-wrapper text-center mb-3">
+                            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&auto=format&fit=crop&q=60" class="img-fluid rounded-3" alt="Butterscotch Crunch">
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark text-truncate">Rich Butterscotch Crunch Cake</h6>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-bold text-danger">MMK 6000</span>
+                            <span class="small text-muted text-decoration-line-through">MMK 8000</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="small text-warning"><i class="bi bi-star-fill me-1"></i>4.9</span>
+                            <button class="btn btn-warning btn-sm rounded-circle add-to-cart-btn"><i class="bi bi-arrow-right-short"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="mb-4">
+                <h3 class="fw-bold mb-1" style="color: #6b0c0c;">Our Promise</h3>
+                <p class="text-muted small">There's no secret spell - only honest work!</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="p-4 rounded-4 mb-4" style="background-color: #fbf5f5;">
+                        <p class="small fw-bold mb-4" style="color: #6b0c0c;">A glimpse into our secret spell - only honest world!</p>
+                        <div class="row g-4 text-center">
+                            <div class="col-6">
+                                <div class="promise-icon-box mx-auto mb-2"><i class="bi bi-truck"></i></div>
+                                <span class="d-block small fw-bold text-dark">ON TIME<br>DELIVERY</span>
+                            </div>
+                            <div class="col-6">
+                                <div class="promise-icon-box mx-auto mb-2"><i class="bi bi-palette"></i></div>
+                                <span class="d-block small fw-bold text-dark">500+<br>DESIGNS</span>
+                            </div>
+                            <div class="col-6">
+                                <div class="promise-icon-box mx-auto mb-2"><i class="bi bi-cart-check"></i></div>
+                                <span class="d-block small fw-bold text-dark">2 CR+<br>ORDERS</span>
+                            </div>
+                            <div class="col-6">
+                                <div class="promise-icon-box mx-auto mb-2"><i class="bi bi-fire"></i></div>
+                                <span class="d-block small fw-bold text-dark">BAKED<br>FRESH</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-4 text-center text-md-start position-relative overflow-hidden" style="background-color: #fbf5f5; border: 2px dashed #e0c3c3;">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                <i class="bi bi-ticket-perforated-fill display-2" style="color: #ffc107;"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="fw-bold mb-1" style="color: #6b0c0c;">THE MAGICAL TICKET</h5>
+                                <p class="small text-muted mb-3">Add 3 reminders in your account. Win offers worth Rs. 750</p>
+                                <button class="btn text-white rounded-pill px-5 py-2 fw-bold" style="background-color: #6b0c0c;">UNLOCK NOW</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-4 bg-light mt-4 d-flex align-items-center justify-content-between">
+                        <span class="small fw-bold text-muted">Follow us on social!</span>
+                        <div class="fs-5 text-muted">
+                            <i class="bi bi-instagram me-3" style="cursor: pointer;"></i>
+                            <i class="bi bi-facebook me-3" style="cursor: pointer;"></i>
+                            <i class="bi bi-youtube" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="./home4.jpg" class="img-fluid rounded-4 gallery-img" alt="Gallery 1">
+                        </div>
+                        <div class="col-6">
+                            <img src="./home2.jpg" class="img-fluid rounded-4 gallery-img" alt="Gallery 2">
+                        </div>
+                        <div class="col-6">
+                            <img src="./home3.jpg" class="img-fluid rounded-4 gallery-img" alt="Gallery 3">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=400" class="img-fluid rounded-4 gallery-img" alt="Gallery 4">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=400" class="img-fluid rounded-4 gallery-img" alt="Gallery 5">
+                        </div>
+                        <div class="col-6">
+                            <img src="./home1.jpg" class="img-fluid rounded-4 gallery-img" alt="Delicious Strawberry Cake">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-white pt-5 pb-3" style="background-color: #6b0c0c;">
+        <div class="container">
+            <div class="row g-4 border-bottom border-secondary pb-4">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="fw-bold mb-3 text-warning">Dakingo</h4>
+                    <p class="small text-white-50">Baked with love, delivered with care. We bring the finest, freshest, and most magical cakes right to your doorstep across the country.</p>
+                    <div class="fs-5 mt-3">
+                        <i class="bi bi-instagram me-3 text-white-50 footer-social-icon"></i>
+                        <i class="bi bi-facebook me-3 text-white-50 footer-social-icon"></i>
+                        <i class="bi bi-twitter-x me-3 text-white-50 footer-social-icon"></i>
+                        <i class="bi bi-youtube text-white-50 footer-social-icon"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-warning">Quick Links</h6>
+                    <ul class="list-unstyled small footer-links">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Our Bakers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Bestsellers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Latest Offers</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-warning">Categories</h6>
+                    <ul class="list-unstyled small footer-links">
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Classic Cakes</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Gourmet Cakes</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Desserts</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-warning">Contact Us</h6>
+                    <p class="small text-white-50 mb-2"><i class="bi bi-geo-alt-fill me-2 text-warning"></i> 123 Baker's Street, Chocolate Ville, Mandalay</p>
+                    <p class="small text-white-50 mb-2"><i class="bi bi-telephone-fill me-2 text-warning"></i> +95 9760828414</p>
+                    <p class="small text-white-50 mb-4"><i class="bi bi-envelope-fill me-2 text-warning"></i> support@dakingo.com</p>
+                </div>
+            </div>
+
+            <div class="row pt-3 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0 text-white-50"> Dakingo Food Delivery. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                    <ul class="list-inline mb-0 small footer-links">
+                        <li class="list-inline-item me-3"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+                        <li class="list-inline-item me-3"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel" style="color: #6b0c0c;">Welcome to Dakingo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="loginFormSection">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Email Address</label>
+                            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="loginPassword" class="form-control rounded-3 pe-5" placeholder="Enter your password" required>
+                                <i class="bi bi-eye-slash position-absolute text-muted" id="togglePassword" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="small text-decoration-none" style="color: #a81c1c;">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn">LOGIN</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="small text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none fw-bold" style="color: #a81c1c;" onclick="toggleAuthForms()">Sign Up</a></p>
+                    </div>
+                    </div>
+                    <div id="signupFormSection" style="display: none;">
+    <form>
+        <div class="mb-3">
+            <label class="form-label small fw-semibold text-muted">Full Name</label>
+            <input type="text" class="form-control rounded-3" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label small fw-semibold text-muted">Email Address</label>
+            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+        </div>
+<div class="mb-3">
+    <label class="form-label small fw-semibold text-muted">Create Password</label>
+    <div class="position-relative">
+        <input type="password" id="signupPassword" class="form-control rounded-3 pe-5" placeholder="Minimum 6 characters" required>
+        <i class="bi bi-eye-slash position-absolute text-muted" id="toggleSignupPassword" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;"></i>
+    </div>
+</div>
+        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 text-dark border-0">CREATE ACCOUNT</button>
+    </form>
+    <div class="text-center mt-3">
+        <p class="small text-muted mb-0">Already have an account? <a href="javascript:void(0)" class="text-decoration-none fw-bold text-danger" onclick="toggleAuthForms()">Login</a></p>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#loginPassword');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+        const toggleSignupPassword = document.querySelector('#toggleSignupPassword');
+const signupPasswordInput = document.querySelector('#signupPassword');
+
+toggleSignupPassword.addEventListener('click', function () {
+    const type = signupPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    signupPasswordInput.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+    this.classList.toggle('bi-eye-slash');
+});
+        function toggleAuthForms() {
+    const loginForm = document.getElementById('loginFormSection');
+    const signupForm = document.getElementById('signupFormSection');
+    
+    if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+    } else {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    }
+}
+function addToCart(productName, price) {
+    // လက်ရှိ Cart ကို အရင်ယူမယ် (မရှိရင် Array အလွတ်တစ်ခုလုပ်မယ်)
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    
+    // ပစ္စည်းအသစ်ကို ထည့်မယ်
+    cart.push({ name: productName, price: price });
+    
+    // ပြန်သိမ်းမယ်
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    
+    alert(productName + " ကို စာရင်းထဲ ထည့်ပြီးပါပြီ!");
+}
+    </script>
+</body>
+</html>

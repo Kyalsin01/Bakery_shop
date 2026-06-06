@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Desserts - Dakingo Food Delivery</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Shopping Cart Badge */
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 0.75rem;
+            padding: 0.25em 0.6em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR START -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-danger fs-3" href="index.html" style="color: #a81c1c !important;">Dakingo</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="mx-auto main-search-box position-relative my-2 my-lg-0">
+                    <i class="bi bi-search search-icon"></i>
+                    <input class="form-control rounded-pill ps-5 py-2" type="search" placeholder="Search desserts, ice creams...">
+                </div>
+                <ul class="navbar-nav ms-auto align-items-center gap-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cakes.html">Cakes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="juices.html">Juice</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="desserts.html">Dessert</a></li>
+                    <!-- LOGIN / SIGNUP BUTTON -->
+                    <li class="nav-item me-2">
+                        <a class="nav-link login-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-person me-1"></i>Login / Signup
+                        </a>
+                    </li>
+                <li class="nav-item">
+    <button class="btn btn-warning order-btn rounded-pill px-4 py-2" 
+            type="button"
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#cartDrawer" 
+            aria-controls="cartDrawer"
+            style="background-color: #ffc107; color: #000; border: none;"> 
+        <i class="bi bi-cart-fill me-2"></i>ORDER NOW (<span id="navOrderCount">0</span>)
+    </button>
+</li>
+       </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION -->
+    <div class="py-5 bg-light mb-5" style="background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1200') center/cover;">
+        <div class="container text-center py-4">
+            <h1 class="display-5 fw-bold" style="color: #930606; font-family: 'Playfair Display', serif;">Sweet & Delicious Desserts</h1>
+            <p class="lead text-muted" style="font-family: 'Poppins', sans-serif;">Indulge in our premium selection of sweet treats delivered straight to your door.</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT START -->
+    <div class="container mb-5">
+        <div class="row">
+            
+            <!-- SIDEBAR FILTERS -->
+            <div class="col-lg-3 mb-4">
+                <div class="card border-0 shadow-sm p-4 rounded-4 position-sticky" style="top: 100px;">
+                    <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-funnel me-2"></i>Filters</h5>
+                    <hr>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-secondary mb-3">Dessert Types</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="dessertCategory" id="allDesserts" value="all" checked>
+                            <label class="form-check-label" for="allDesserts">All Desserts (10)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="dessertCategory" id="pudding" value="pudding">
+                            <label class="form-check-label" for="pudding">Puddings & Mousses</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="dessertCategory" id="icecream" value="icecream">
+                            <label class="form-check-label" for="icecream">Ice Creams & Sundaes</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input category-filter" type="radio" name="dessertCategory" id="pastry" value="pastry">
+                            <label class="form-check-label" for="pastry">Pastries & Tarts</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT GRID -->
+            <div class="col-lg-9">
+                <div class="row g-4" id="productGrid">
+                    
+                    <!-- Item 1 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pudding">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./carmel.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Classic Caramel Custard</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (110)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 4500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d1', 'Classic Caramel Custard', 4500, './carmel.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pudding">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./triple.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Triple Chocolate Mousse</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 5.0 (210)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 6500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d2', 'Triple Chocolate Mousse', 6500, './triple.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pudding">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert3.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Mango Chia Seed Pudding</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (85)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 5000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d3', 'Mango Chia Seed Pudding', 5000, './dessert3.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icecream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert4.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Premium Matcha Ice Cream</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (145)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 5500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d4', 'Premium Matcha Ice Cream', 5500, './dessert4.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icecream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert5.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Strawberry Waffle Sundae</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (190)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 8000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d5', 'Strawberry Waffle Sundae', 8000, './dessert5.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="icecream">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert6.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Fudgy Brownie Blast</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.9 (320)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 7500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d6', 'Fudgy Brownie Blast', 7500, './dessert6.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pastry">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert7.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Fresh Blueberry Tart</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.8 (102)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 6000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d7', 'Fresh Blueberry Tart', 6000, './dessert7.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pastry">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert8.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Classic French Macarons (6pcs)</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.7 (115)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 9000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d8', 'Classic French Macarons (6pcs)', 9000, './dessert8.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pastry">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert9.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Fruity Cream Puff</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 4.6 (78)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 4000</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d9', 'Fruity Cream Puff', 4000, './dessert9.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="col-md-4 col-sm-6 product-item" data-category="pastry">
+                        <div class="card h-100 product-card border-0 shadow-sm position-relative">
+                            <button class="position-absolute wishlist-btn"><i class="bi bi-heart"></i></button>
+                            <div class="p-3 product-img-wrapper">
+                                <img src="./dessert10.jpg" class="card-img-top rounded-4" alt="Dessert">
+                            </div>
+                            <div class="card-body pt-0 px-3 pb-3">
+                                <h6 class="fw-bold mb-1">Molten Lava Chocolate Cake</h6>
+                                <div class="text-warning small mb-2"><i class="bi bi-star-fill"></i> 5.0 (410)</div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-danger">MMK 8500</span>
+                                    <button class="btn btn-danger add-to-cart-btn rounded-circle" style="background-color: #6b0c0c; border:none;" onclick="addToCart('d10', 'Molten Lava Chocolate Cake', 8500, './dessert10.jpg')"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    <!-- MAIN CONTENT END -->
+
+    <!-- ========================================== -->
+    <!-- SHOPPING CART DRAWER (ORDER NOW) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold" id="cartDrawerLabel">Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-3"> 
+        <div id="cartItemsList">
+            </div>
+
+        <div class="mt-4 border-top pt-3">
+            <div class="d-flex justify-content-between mb-3">
+                <span class="fw-bold fs-5">Total:</span>
+                <span class="fw-bold fs-5 text-danger" id="cartTotalText">MMK 0</span>
+            </div>
+            <button class="btn btn-danger w-100 py-2 fw-bold" onclick="checkoutOrder()">CHECKOUT</button>
+        </div>
+    </div>
+</div>
+    <!-- ========================================== -->
+    <!-- AUTH MODALS (LOGIN / SIGNUP) -->
+    <!-- ========================================== -->
+    <!-- 1. LOGIN MODAL -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="loginModalLabel" style="color: #6b0c0c;">Welcome to Dakingo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Email Address</label>
+                            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="loginPassword" class="form-control rounded-3 pe-5" placeholder="Enter your password" required>
+                                <i class="bi bi-eye-slash position-absolute text-muted" id="togglePasswordIcon" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;" onclick="togglePasswordVisibility('loginPassword', 'togglePasswordIcon')"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="small text-decoration-none" style="color: #a81c1c;">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn" style="background-color: #ffc107; color: #000; border: none;">LOGIN</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="small text-muted mb-0">Don't have an account? <a href="#" class="text-decoration-none fw-bold" style="color: #a81c1c;" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-dismiss="modal">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. SIGN UP MODAL -->
+    <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow border-0">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="signUpModalLabel" style="color: #6b0c0c;">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Full Name</label>
+                            <input type="text" class="form-control rounded-3" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Email Address</label>
+                            <input type="email" class="form-control rounded-3" placeholder="name@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold text-muted">Password</label>
+                            <div class="position-relative">
+                                <input type="password" id="signUpPassword" class="form-control rounded-3" placeholder="Create new password" style="padding-right: 50px !important;" required>
+                                <i class="bi bi-eye-slash position-absolute text-muted" id="toggleSignUpPasswordIcon" style="top: 50%; right: 15px; transform: translateY(-50%); cursor: pointer; font-size: 1.1rem; z-index: 10;" onclick="togglePasswordVisibility('signUpPassword', 'toggleSignUpPasswordIcon')"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100 rounded-pill fw-bold py-2 order-btn mt-2" style="background-color: #ffc107; color: #000; border: none;">SIGN UP</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="small text-muted mb-0">Already have an account? <a href="#" class="text-decoration-none fw-bold" style="color: #a81c1c;" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Javascript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   <script>
+    // 1. Filter Function
+    document.querySelectorAll('.category-filter').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const selectedCategory = e.target.value;
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (selectedCategory === 'all' || item.getAttribute('data-category') === selectedCategory) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 2. Toggle Password Visibility
+    function togglePasswordVisibility(inputId, iconId) {
+        const passwordInput = document.getElementById(inputId);
+        const togglePasswordIcon = document.getElementById(iconId);
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordIcon.classList.replace('bi-eye-slash', 'bi-eye');
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordIcon.classList.replace('bi-eye', 'bi-eye-slash');
+        }
+    }
+
+    // 3. CART SYSTEM LOGIC
+    let cart = JSON.parse(localStorage.getItem('dakingo_cart')) || [];
+
+    document.addEventListener("DOMContentLoaded", () => {
+        updateCartUI();
+    });
+
+
+  
+    function saveAndRefreshCart() {
+        localStorage.setItem('dakingo_cart', JSON.stringify(cart));
+        updateCartUI();
+    }
+
+   function addToCart(id, title, price, img) {
+    cart.push({ id, title, price, img, priceVal: price });
+    saveAndRefreshCart();
+    // ဒီမှာ ဘာ Code မှ ထည့်မထားပါနဲ့ (အလိုလို ပွင့်မှာ မဟုတ်တော့ပါဘူး)
+}
+function updateCartUI() {
+    const cartList = document.getElementById('cartItemsList');
+    const navOrderCount = document.getElementById('navOrderCount');
+    const cartTotalText = document.getElementById('cartTotalText');
+    
+    if (!navOrderCount || !cartList) return; 
+
+    cartList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        // ဒီနေရာမှာ priceVal မရှိရင် price ကိုပဲသုံးဖို့ စစ်ဆေးပါမယ်
+        const price = item.priceVal || item.price || 0; 
+        total += price;
+        
+        cartList.innerHTML += `
+            <div class="d-flex align-items-center mb-3 border-bottom pb-2">
+                <img src="${item.img}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                <div class="ms-3 flex-grow-1">
+                    <div class="fw-bold small">${item.title}</div>
+                    <div class="text-muted small">MMK ${price.toLocaleString()}</div>
+                </div>
+                <button class="btn btn-sm text-danger" onclick="removeFromCart(${index})">✕</button>
+            </div>`;
+    });
+    
+    navOrderCount.innerText = cart.length;
+    cartTotalText.innerText = "MMK " + total.toLocaleString();
+}
+// ဖျက်တဲ့နေရာမှာ Index နဲ့ ဖျက်ပါ
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveAndRefreshCart();
+}
+
+    function checkoutOrder() {
+        if(cart.length === 0) {
+            alert("ခြင်းတောင်းထဲမှာ ဘာမှမရှိသေးပါဘူးခင်ဗျာ။");
+            return;
+        }
+        alert("အော်ဒါ အောင်မြင်ပါသည်!");
+        cart = [];
+        saveAndRefreshCart();
+    }
+</script>
+<script src="script.js"></script>
+</body>
+</html>
