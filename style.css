@@ -1,13 +1,9 @@
-/* ==========================================
-   GLOBAL & TYPOGRAPHY STYLES
-   ========================================== */
+/*   GLOBAL & TYPOGRAPHY STYLES*/
 h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1.5px;
 }
 
-/* ==========================================
-   NAVBAR LINK STYLES
-   ========================================== */
+/* NAVBAR LINK STYLES */
 .navbar-nav .nav-link {
     transition: all 0.3s ease;
     position: relative;
@@ -16,12 +12,18 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-/* Mouse တင်လိုက်တဲ့အခါ */
 .navbar-nav .nav-link:hover {
     color: #a81c1c !important;
     transform: translateY(-4px);
 }
+.navbar-nav {
+    display: flex;
+    gap: 30px; 
+}
 
+.navbar-nav .nav-item {
+    margin-right: 0 !important;
+}
 /* Login Link Hover Style */
 .login-link {
     display: inline-block;        
@@ -355,7 +357,6 @@ footer .list-inline-item a:hover {
 /* ==========================================
    THE MAGICAL TICKET - BOOTSTRAP GIFT ICON FIX (OPTION 2)
    ========================================== */
-/* Font Awesome လင့်ခ်မရှိပါက ကျိန်းသေပေါက်အလုပ်လုပ်စေရန် Bootstrap Icon Font ဖြင့် လက်ဆောင်ဘူးပုံပြောင်းလဲခြင်း */
 .bi-ticket-perforated-fill::before {
     content: "\f3ea" !important; /* Bootstrap Icons ရဲ့ Gift (လက်ဆောင်ဘူး) ကုဒ် */
     font-family: "bootstrap-icons" !important;
@@ -380,29 +381,25 @@ div[style*="dashed"], .promo-card, .card[style*="dashed"] {
 }
 
 .add-to-cart-btn:active {
-    transform: scale(0.85); /* နှိပ်လိုက်ရင် ခလုတ်လေး ခဏပိန်သွားပါမယ် */
-    background-color: #4a0808 !important; /* နှိပ်လိုက်ရင် အရောင်လေး ပိုရင့်သွားအောင် လုပ်ထားပါတယ် */
-}
-/* Cart ထဲက +/- ခလုတ်များ ပုံစံကျစေရန် */
+    transform: scale(0.85); 
+    background-color: #4a0808 !important; 
 .add-to-cart-btn, .btn-sm {
-    width: 30px !important;     /* အကျယ် */
-    height: 30px !important;    /* အမြင့် (width နဲ့တူရမယ်) */
+    width: 30px !important;    
+    height: 30px !important;   
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
-    border-radius: 50% !important; /* အဝိုင်းပုံဖြစ်စေရန် */
+    border-radius: 50% !important;
     line-height: 1 !important;
     vertical-align: middle;
 }
 
-/* နှိပ်လိုက်တဲ့အခါ ပုံစံမပျက်အောင် */
 .add-to-cart-btn:active {
     transform: scale(0.9);
 }
 
 @media (max-width: 991px) {
-    /* Navbar menu ဖွင့်လိုက်ရင် အပြည့်ဖြန့်ပြီး အလယ်ကျစေရန် */
     .navbar-collapse {
         text-align: center !important;
         width: 100% !important;
@@ -414,7 +411,6 @@ div[style*="dashed"], .promo-card, .card[style*="dashed"] {
         width: 100% !important;
     }
 
-    /* Mobile မှာ Margin တွေကို 0 လုပ်ပြီး အလယ်ရောက်အောင် */
     .navbar-nav .nav-item {
         margin-right: 0 !important;
         margin-left: 0 !important;
@@ -422,13 +418,11 @@ div[style*="dashed"], .promo-card, .card[style*="dashed"] {
         width: 100% !important;
     }
 
-    /* Order Button ကို အလယ်ရောက်အောင် သေချာစေရန် */
     .order-btn {
         margin: 10px auto !important;
-        display: inline-block !important; /* Block အစား inline-block သုံးကြည့်ပါ */
+        display: inline-block !important; 
     }
 
-    /* Search Box အတွက် */
     .main-search-box {
         width: 90% !important;
         margin: 10px auto !important;

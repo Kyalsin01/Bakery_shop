@@ -377,22 +377,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // 1. Cart စနစ်အတွက် Variable
+    
     let cart = JSON.parse(localStorage.getItem('dakingoCart')) || [];
 
     document.addEventListener('DOMContentLoaded', updateCart);
 
-  // 2. Cart လုပ်ဆောင်ချက်များ
 function addToCart(name, price) {
     cart.push({ name, price });
-    // အရေးကြီး: LocalStorage ထဲကို အသစ်ပြန်ထည့်ပေးရမယ်
     localStorage.setItem('dakingoCart', JSON.stringify(cart));
     updateCart();
 }
 
 function removeFromCart(index) {
     cart.splice(index, 1);
-    // အရေးကြီး: LocalStorage ထဲကို update လုပ်ပေးရမယ်
     localStorage.setItem('dakingoCart', JSON.stringify(cart));
     updateCart();
 }
@@ -407,31 +404,27 @@ function removeFromCart(index) {
     const navOrderCount = document.getElementById('navOrderCount');
     const cartTotal = document.getElementById('cartTotal');
     
-    // ဒီနေရာမှာ cartList မရှိရင် function ကို ရပ်လိုက်ပါ
     if (!cartList) return; 
     
-    // ကျန်တာတွေကို ဆက်ရေးပါ...
     cartList.innerHTML = '';
-    // ...
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        total += item.price;
+        cartList.innerHTML += `
+            <div class="d-flex justify-content-between mb-2">
+                <span>${item.name}</span>
+                <span>${item.price.toLocaleString()} MMK 
+                    <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index})">x</button>
+                </span>
+            </div>`;
+    });
+    
+    if (navOrderCount) navOrderCount.innerText = cart.length;
+    if (cartTotal) cartTotal.innerText = total.toLocaleString();
+}
 
-        let total = 0;
-        
-        cart.forEach((item, index) => {
-            total += item.price;
-            cartList.innerHTML += `
-                <div class="d-flex justify-content-between mb-2">
-                    <span>${item.name}</span>
-                    <span>${item.price.toLocaleString()} MMK 
-                        <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeFromCart(${index})">x</button>
-                    </span>
-                </div>`;
-        });
-        
-        navOrderCount.innerText = cart.length;
-        cartTotal.innerText = total.toLocaleString();
-    }
-
-    // 3. Filter စနစ်
+    // 3. Filter 
     function filterProducts() {
         const selectedCategory = document.querySelector('.category-filter:checked').value;
         const maxPrice = parseInt(document.getElementById('priceRange').value);
@@ -486,10 +479,12 @@ function removeFromCart(index) {
     <div class="offcanvas-body">
         <div id="cartItemsList"></div>
         <hr>
-        <h5 class="text-end">Total: <span id="cartTotal">0</span> MMK</h5>
-        <button class="btn btn-danger w-100">Checkout</button>
+<h5 class="d-flex justify-content-between">
+    <span>Total:</span>
+    <span id="cartTotal">0</span>
+</h5>        <button class="btn btn-danger w-100">Checkout</button>
     </div>
 </div>
-<script src="script.js"></script>
+<script src="javascript.js"></script>
 </body>
 </html>

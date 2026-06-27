@@ -445,18 +445,7 @@ toggleSignupPassword.addEventListener('click', function () {
         signupForm.style.display = 'block';
     }
 }
-function addToCart(productName, price) {
-    // လက်ရှိ Cart ကို အရင်ယူမယ် (မရှိရင် Array အလွတ်တစ်ခုလုပ်မယ်)
-    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
-    
-    // ပစ္စည်းအသစ်ကို ထည့်မယ်
-    cart.push({ name: productName, price: price });
-    
-    // ပြန်သိမ်းမယ်
-    localStorage.setItem('myCart', JSON.stringify(cart));
-    
-    alert(productName + " ကို စာရင်းထဲ ထည့်ပြီးပါပြီ!");
-}
+
     </script>
 </body>
 </html>
